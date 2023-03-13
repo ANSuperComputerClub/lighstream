@@ -1,5 +1,6 @@
 package com.ansupercomputer.lightstream.Asset;
 
+import com.ansupercomputer.lightstream.Exceptions.IllegalOperationException;
 import com.ansupercomputer.lightstream.Util.Identifiable;
 import com.ansupercomputer.lightstream.Util.PriceHistory;
 import com.ansupercomputer.lightstream.Util.Unique;
@@ -11,8 +12,17 @@ import java.math.BigDecimal;
  */
 public class Asset implements Unique, Identifiable {
 
+    /**
+     * Keeps track of unused ids
+     */
     private static int nextId = 0;
+    /**
+     * An id unique to this asset
+     */
     private final int id;
+    /**
+     * Stores the price history of the asset
+     */
     private final PriceHistory priceHistory;
 
     private BigDecimal price;
@@ -34,7 +44,7 @@ public class Asset implements Unique, Identifiable {
     /**
      * @return The price of the asset
      */
-    public BigDecimal getPrice() {
+    public BigDecimal getPrice() throws IllegalOperationException {
         return price;
     }
 
@@ -49,7 +59,7 @@ public class Asset implements Unique, Identifiable {
      * Updates the price and records the previous price in the priceHistory
      * @param newPrice The new price
      */
-    public void updatePrice(BigDecimal newPrice) {
+    public void updatePrice(BigDecimal newPrice) throws IllegalOperationException {
         priceHistory.recordPrice(System.currentTimeMillis(), price);
         price = newPrice;
     }

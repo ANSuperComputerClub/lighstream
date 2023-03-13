@@ -6,6 +6,7 @@ import lombok.extern.java.Log;
  * A Logger object that logs messages to the standard output.
  */
 public class Logger {
+    public static Logger globalLogger = new Logger("GLOBAL");
     private final String name;
 
     /**
