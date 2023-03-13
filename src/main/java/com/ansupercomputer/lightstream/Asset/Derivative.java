@@ -27,6 +27,7 @@ public class Derivative extends Asset {
     public Derivative(List<Asset> underlyingAssets, DerivativePricingFunction pricer, String identifier) throws IllegalOperationException {
         super(BigDecimal.valueOf(0), identifier);
         this.underlyingAssets = underlyingAssets;
+        this.pricingFunction = pricer;
         updatePrice();
     }
 
@@ -48,10 +49,5 @@ public class Derivative extends Asset {
     @Override
     public void updatePrice(BigDecimal newPrice) throws IllegalOperationException {
         throw new IllegalOperationException("Cannot directly update price of derivative asset");
-    }
-
-    @FunctionalInterface
-    private interface DerivativePricingFunction {
-        BigDecimal run(List<Asset> underlyingAssets);
     }
 }

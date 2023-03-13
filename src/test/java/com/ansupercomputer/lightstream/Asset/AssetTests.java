@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.math.BigDecimal;
 
+import com.ansupercomputer.lightstream.Exceptions.IllegalOperationException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,12 +20,12 @@ public class AssetTests {
     }
 
     @Test
-    public void testGetPrice() {
+    public void testGetPrice() throws IllegalOperationException {
         assertEquals(BigDecimal.valueOf(100), asset.getPrice());
     }
 
     @Test
-    public void testUpdatePrice() {
+    public void testUpdatePrice() throws IllegalOperationException {
         asset.updatePrice(BigDecimal.valueOf(150));
         assertEquals(BigDecimal.valueOf(150), asset.getPrice());
     }
