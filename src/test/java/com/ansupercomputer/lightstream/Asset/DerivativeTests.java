@@ -29,7 +29,6 @@ class DerivativeTests {
         List<Asset> underlyingAssets = Arrays.asList(underlyingAsset1, underlyingAsset2);
         List<BigDecimal> weights = List.of(BigDecimal.valueOf(0.5), BigDecimal.valueOf(0.5));
         DerivativePricingFunction pricingFunction = new LinearDerivativePricingFunction(weights);
-        Logger.globalLogger.log("based");
         derivative = new Derivative(underlyingAssets, pricingFunction, "Derivative");
     }
 

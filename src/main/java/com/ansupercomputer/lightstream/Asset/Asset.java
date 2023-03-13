@@ -31,7 +31,8 @@ public class Asset implements Unique, Identifiable {
 
     /**
      * Creates an Asset
-     * @param price The starting price of the Asset
+     *
+     * @param price      The starting price of the Asset
      * @param identifier The identifier of the Asset
      */
     public Asset(BigDecimal price, String identifier) {
@@ -57,6 +58,7 @@ public class Asset implements Unique, Identifiable {
 
     /**
      * Updates the price and records the previous price in the priceHistory
+     *
      * @param newPrice The new price
      */
     public void updatePrice(BigDecimal newPrice) throws IllegalOperationException {
@@ -73,7 +75,7 @@ public class Asset implements Unique, Identifiable {
     }
 
     /**
-     *  @return The objects unique id
+     * @return The objects unique id
      */
     @Override
     public int getId() {

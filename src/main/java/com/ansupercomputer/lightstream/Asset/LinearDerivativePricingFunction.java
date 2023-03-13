@@ -5,8 +5,14 @@ import com.ansupercomputer.lightstream.Exceptions.IllegalOperationException;
 import java.math.BigDecimal;
 import java.util.List;
 
+/**
+ * A derivative pricing function that linearly increases according to the underlying assets.
+ */
 public class LinearDerivativePricingFunction implements DerivativePricingFunction {
 
+    /**
+     * The weights that determine how important each underlying asset affects the price of the derivative asset
+     */
     private final List<BigDecimal> weights;
 
     public LinearDerivativePricingFunction(List<BigDecimal> weights) {
@@ -15,7 +21,7 @@ public class LinearDerivativePricingFunction implements DerivativePricingFunctio
 
     @Override
     public BigDecimal run(List<Asset> underlyingAssets) throws IllegalOperationException {
-        if (underlyingAssets.size() != weights.size()) {
+        if (underlyingAssets.size() > weights.size()) {
             throw new IllegalOperationException("Number of underlying assets and weights do not match");
         }
 

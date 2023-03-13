@@ -17,9 +17,11 @@ public class Derivative extends Asset {
     /**
      * The function that determines the relation between the derivative price and price of the underlying assets
      */
-    private DerivativePricingFunction pricingFunction;
+    private final DerivativePricingFunction pricingFunction;
+
     /**
      * Creates a Derivative Asset
+     *
      * @param underlyingAssets The assets that the derivative asset relies on to get the price of
      * @param pricer           The function that determines the price of the derivative asset, given the price of the underlying asset
      * @param identifier       The identifier of the Asset
@@ -33,6 +35,7 @@ public class Derivative extends Asset {
 
     /**
      * Calls the internal pricing function to determine the price of the asset.
+     *
      * @return the price of the derivative asset.
      */
     public BigDecimal getPrice() throws IllegalOperationException {
@@ -44,7 +47,9 @@ public class Derivative extends Asset {
     /**
      * Updates the price in accordance with
      */
-    public void updatePrice() throws IllegalOperationException { super.updatePrice(pricingFunction.run(underlyingAssets)); }
+    public void updatePrice() throws IllegalOperationException {
+        super.updatePrice(pricingFunction.run(underlyingAssets));
+    }
 
     @Override
     public void updatePrice(BigDecimal newPrice) throws IllegalOperationException {

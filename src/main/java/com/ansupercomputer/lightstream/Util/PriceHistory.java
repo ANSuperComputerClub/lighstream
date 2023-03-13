@@ -22,6 +22,7 @@ public class PriceHistory {
 
     /**
      * Initializes a new PriceHistory object based on the previous
+     *
      * @param lhs the object to be copied
      */
     public PriceHistory(PriceHistory lhs) {
@@ -30,7 +31,8 @@ public class PriceHistory {
 
     /**
      * Record a new price in the price history object
-     * @param time The time to record
+     *
+     * @param time  The time to record
      * @param price The price to record
      */
     public void recordPrice(long time, BigDecimal price) {
@@ -45,10 +47,10 @@ public class PriceHistory {
     public BigDecimal getPrice(long time) {
         long increment = -1;
         BigDecimal price = null;
-        while(price == null) {
+        while (price == null) {
             increment++;
             price = history.get(time + increment);
-            if(price == null) price = history.get(time - increment);
+            if (price == null) price = history.get(time - increment);
         }
         return price;
     }

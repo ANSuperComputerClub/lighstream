@@ -1,6 +1,7 @@
 package com.ansupercomputer.lightstream.Util;
 
-import java.util.*;
+import java.util.ArrayList;
+
 /**
  * A data structure that defines a circular queue.
  * Importantly, when the structure is full, the oldest element is replaced.
@@ -22,6 +23,7 @@ public class CircularQueue<T> extends ArrayList<T> {
     /**
      * Adds an element to the end of the queue. If the queue is full, the oldest
      * element is replaced to make space for the new element.
+     *
      * @param element the element to add to the queue
      * @return true if successful, false if not
      */
