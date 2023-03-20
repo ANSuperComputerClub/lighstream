@@ -1,7 +1,6 @@
 package com.ansupercomputer.lightstream.UtilTests;
 
 import com.ansupercomputer.lightstream.Util.CircularQueue;
-import com.ansupercomputer.lightstream.Util.LogLevel;
 import com.ansupercomputer.lightstream.Util.Logger;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

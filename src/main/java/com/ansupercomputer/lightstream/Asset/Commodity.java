@@ -1,6 +1,8 @@
 package com.ansupercomputer.lightstream.Asset;
 
 import com.ansupercomputer.lightstream.Exceptions.IllegalOperationException;
+import com.ansupercomputer.lightstream.Exceptions.InvalidArgumentException;
+import com.ansupercomputer.lightstream.Util.Util;
 
 import java.math.BigDecimal;
 
@@ -48,11 +50,9 @@ public class Commodity extends Asset {
      * Updates the supply factor
      *
      * @param supply the new supply factor
-     * @throws IllegalOperationException should the supply factor be out of the domain (between 0 and 1)
      */
-    public void updateSupply(double supply) throws IllegalOperationException {
-        if (supply > 1 || supply < 0)
-            throw new IllegalOperationException("Cannot set supply factor to be greater than 1 or less than 0");
+    public void updateSupply(double supply) throws InvalidArgumentException {
+        Util.enforceRange(demand, 0, 1);
         this.supply = supply;
     }
 
@@ -60,11 +60,9 @@ public class Commodity extends Asset {
      * Updates the demand factor
      *
      * @param demand the new demand factor
-     * @throws IllegalOperationException should the demand factor be out of the domain (between 0 and 1)
      */
-    public void updateDemand(double demand) throws IllegalOperationException {
-        if (demand > 1 || demand < 0)
-            throw new IllegalOperationException("Cannot update demand factor ot be greater than 1 or less than 0");
+    public void updateDemand(double demand) throws  InvalidArgumentException {
+        Util.enforceRange(demand, 0, 1);
         this.demand = demand;
     }
 

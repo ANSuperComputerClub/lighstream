@@ -8,7 +8,9 @@ import java.util.ArrayList;
  * This allows the Queue to store the most recent data without the older data.
  */
 public class CircularQueue<T> extends ArrayList<T> {
-
+    /**
+     * Sets the capacity of the circular queue before elements start rotating out.
+     */
     private static final int CAPACITY = 100;
     private int head = 0; // index of the oldest element
     private int tail = 0; // index where the next element will be added

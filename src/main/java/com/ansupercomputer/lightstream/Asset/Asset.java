@@ -24,10 +24,8 @@ public class Asset implements Unique, Identifiable {
      * Stores the price history of the asset
      */
     private final PriceHistory priceHistory;
-
-    private BigDecimal price;
-
     private final String identifier;
+    private BigDecimal price;
 
     /**
      * Creates an Asset
